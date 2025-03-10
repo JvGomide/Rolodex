@@ -16,9 +16,11 @@ class App extends Component{
     };
   }
 
+  //Primeira vez que um componente é carregado no DOM, só acontece uma vez no ciclo de vida de um componente
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) =>  response.json())
+      //Todo o valor obtido pelo response é passado para o próximo .then como users
       .then((users) => this.setState(() => {
         return {monsters: users};
       },
